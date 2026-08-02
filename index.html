@@ -5,21 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <style>
-        /* 기본 여백 제거 및 전체 화면 설정 */
+        /* 기본 여백 제거 및 배경색 설정 */
         body, html {
             margin: 0;
             padding: 0;
-            width: 100%;
-            height: 100%;
             background-color: #9cbcae; /* 예시 사진과 유사한 민트색 배경 */
-            overflow: hidden; /* 스크롤 방지 */
         }
 
-        /* 전체 레이아웃을 좌우로 나누는 컨테이너 */
+        /* 전체 레이아웃을 세로로 길게 설정 */
         .container {
             display: flex;
             width: 100%;
-            height: 100%;
+            /* 사이트의 세로 길이를 길게 설정 (숫자를 늘리거나 줄여서 길이 조절 가능) */
+            min-height: 2500px; 
             position: relative;
         }
 
@@ -33,8 +31,8 @@
         .divider {
             width: 20px;
             height: 100%;
-            /* 중간 점선 이미지를 세로로 반복 */
-            background-image: url('중간 점선.png');
+            /* 새로 첨부해주신 중간 점선_2.png 적용 및 세로 반복 */
+            background-image: url('중간 점선_2.png');
             background-repeat: repeat-y;
             background-position: center top;
             background-size: contain;
@@ -73,11 +71,10 @@
         /* 2. 오른쪽 상단 (포폴 증사) 배치 */
         .portrait {
             position: absolute;
-            top: 40%;
+            top: 40%; /* 세로로 길어졌으므로 위에서부터의 위치 지정 */
             left: 20%;
-            width: 40%;
-            max-width: 200px;
-            transform: translateY(-50%);
+            width: 45%;
+            max-width: 250px;
         }
 
         /* 3. 오른쪽 하단 (동인하초) 배치 */
@@ -95,9 +92,9 @@
     <div class="container">
         <!-- 왼쪽 영역 -->
         <div class="left-pane">
-            <!-- 클릭 시 어긋살기.jpg 열림 (새 창) -->
+            <!-- 클릭 시 어긋살기.jpg 열림 -->
             <a href="어긋살기.jpg" target="_blank" class="plant-left">
-                <img src="어긋살기 설명.png" alt="어긋살기 설명">
+                <img src="어긋살기 설명.jpg" alt="어긋살기 설명">
             </a>
         </div>
 
@@ -106,12 +103,12 @@
 
         <!-- 오른쪽 영역 -->
         <div class="right-pane">
-            <!-- 클릭 시 portfolio.pdf 열림 (새 창) -->
+            <!-- 클릭 시 portfolio.pdf 열림 -->
             <a href="portfolio.pdf" target="_blank" class="portrait">
-                <img src="포폴 증사.png" alt="포트폴리오 증명사진">
+                <img src="포폴 증사.jpg" alt="포트폴리오 증명사진">
             </a>
             
-            <!-- 클릭 시 동인하초.pdf 열림 (새 창) -->
+            <!-- 클릭 시 동인하초.pdf 열림 -->
             <a href="동인하초.pdf" target="_blank" class="plant-right">
                 <img src="동인하초 한글버전.png" alt="동인하초">
             </a>
