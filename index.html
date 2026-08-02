@@ -2,103 +2,108 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <!-- 모바일 환경에 맞게 뷰포트 설정 (확대/축소 방지) -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Portfolio</title>
     <style>
-        /* 기본 여백 제거 및 스크롤 방지 */
+        /* 기본 여백 제거 및 전체 화면 설정 */
         body, html {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
-            background-color: #9cbcae; /* 배경색 */
-            overflow: hidden; /* 모바일에서 스크롤이 생기지 않도록 차단 */
+            background-color: #9cbcae;
+            overflow: hidden; /* 모바일에서 스크롤 방지 */
+            display: flex;
+            justify-content: center;
         }
 
-        /* 모바일 화면 비율 컨테이너 */
+        /* 도메인 화면 크기를 예시 사진 비율과 동일하게 고정 */
         .container {
             position: relative;
             width: 100%;
-            height: 100dvh; /* 모바일 브라우저 상하단 바를 제외한 실제 화면 높이에 꽉 차게 설정 */
-            max-width: 500px; /* PC에서 접속해도 모바일처럼 보이도록 최대 너비 제한 */
-            margin: 0 auto; /* 가운데 정렬 */
+            height: 100dvh; /* 화면 높이에 꽉 차게 */
+            max-width: 600px; /* 화면이 너무 넓은 기기에서도 비율 유지 */
             background-color: #9cbcae;
+            overflow: hidden;
         }
 
-        /* 중간 점선 */
+        /* 중간 점선을 img 태그로 처리하여 무조건 보이게 설정 */
         .divider {
             position: absolute;
             top: 0;
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 12px; /* 점선 두께 */
-            background-image: url('중간 점선_3.png');
-            background-repeat: repeat-y; /* 세로로만 반복 */
-            background-position: center top;
-            background-size: 100% auto;
-            z-index: 1; /* 식물들보다 뒤에 배치 */
+            height: 100%;
+            z-index: 1;
+            pointer-events: none; /* 클릭 간섭 방지 */
+        }
+        .divider img {
+            height: 100%;
+            width: auto;
+            object-fit: cover;
         }
 
-        /* 공통 링크 스타일 (마우스나 터치 시 살짝 커지는 효과) */
+        /* 클릭 가능한 이미지들 공통 속성 */
         a {
             position: absolute;
             display: block;
             transition: transform 0.2s ease-in-out;
-            z-index: 2; /* 점선보다 앞에 배치 */
+            z-index: 2;
         }
         a:hover, a:active {
-            transform: scale(1.03);
+            transform: scale(1.02);
         }
 
-        img {
+        /* a 태그 안의 이미지가 공간을 꽉 채우도록 설정 */
+        a img {
             width: 100%;
             height: auto;
             display: block;
             border: none;
         }
 
-        /* 1. 왼쪽 식물 (어긋살기) */
+        /* 1. 왼쪽 식물 (어긋살기) - 크기 대폭 확대 및 바닥 밀착 */
         .plant-left {
-            bottom: -2%; /* 화면 맨 아래에 바짝 붙임 */
-            left: 3%;
-            width: 55%; /* 모바일 화면 너비의 55% 크기 */
+            bottom: -3%;
+            left: -2%;
+            width: 68%; /* 화면의 약 70% 차지할 만큼 크게 */
         }
 
-        /* 2. 오른쪽 상단 (포폴 증사) */
+        /* 2. 오른쪽 상단 (포폴 증사) - 크기 확대 및 위치 조정 */
         .portrait {
-            top: 40%; /* 화면 위에서부터 40% 내려온 위치 */
-            right: 8%;
-            width: 33%; /* 모바일 화면 너비의 33% 크기 */
+            top: 38%;
+            right: 4%;
+            width: 40%; /* 큼직하게 꽉 차도록 */
         }
 
-        /* 3. 오른쪽 하단 (동인하초) */
+        /* 3. 오른쪽 하단 (동인하초) - 크기 확대 및 바닥 밀착 */
         .plant-right {
-            bottom: -2%; /* 화면 맨 아래에 바짝 붙임 */
-            right: 5%;
-            width: 38%; /* 모바일 화면 너비의 38% 크기 */
+            bottom: -1%;
+            right: -2%;
+            width: 48%; /* 화면의 절반 가까이 차지하도록 크게 */
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- 중간 점선 -->
-        <div class="divider"></div>
+        <!-- 중간 점선 (직접 img 태그로 삽입) -->
+        <div class="divider">
+            <img src="중간 점선_3.png" alt="중간 점선">
+        </div>
 
-        <!-- 1. 왼쪽 식물 (클릭 시 어긋살기.jpg 열림) -->
+        <!-- 1. 왼쪽 식물 (어긋살기) -->
         <a href="어긋살기.jpg" target="_blank" class="plant-left">
-            <!-- 투명 배경 유지를 위해 .png 사용 -->
             <img src="어긋살기 설명.png" alt="어긋살기 설명">
         </a>
 
-        <!-- 2. 오른쪽 상단 (클릭 시 portfolio.pdf 열림) -->
+        <!-- 2. 오른쪽 상단 (포폴 증사) -->
         <a href="portfolio.pdf" target="_blank" class="portrait">
             <img src="포폴 증사.png" alt="포트폴리오 증명사진">
         </a>
         
-        <!-- 3. 오른쪽 하단 (클릭 시 동인하초.pdf 열림) -->
+        <!-- 3. 오른쪽 하단 (동인하초) -->
         <a href="동인하초.pdf" target="_blank" class="plant-right">
             <img src="동인하초 한글버전.png" alt="동인하초">
         </a>
