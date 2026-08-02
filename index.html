@@ -49,7 +49,7 @@
             position: absolute;
             display: block;
             transition: transform 0.2s ease-in-out;
-            z-index: 2;
+            z-index: 2; /* 점선보다 위로 올라오게 설정 */
         }
         a:hover, a:active {
             transform: scale(1.02);
@@ -67,21 +67,21 @@
         .plant-left {
             bottom: -3%;
             left: -2%;
-            width: 68%; /* 화면의 약 70% 차지할 만큼 크게 */
+            width: 68%;
         }
 
-        /* 2. 오른쪽 상단 (포폴 증사) - 왼쪽 식물보다 살짝 높은 곳으로 위로 올림 */
+        /* 2. 오른쪽 상단 (포폴 증사) - 왼쪽 식물보다 높은 곳 위치 */
         .portrait {
-            top: 25%; /* 기존 38%에서 25%로 값을 줄여 더 높은 위치에 배치 */
+            top: 25%; 
             right: 4%;
-            width: 40%; /* 큼직하게 꽉 차도록 */
+            width: 40%; 
         }
 
         /* 3. 오른쪽 하단 (동인하초) - 크기 확대 및 바닥 밀착 */
         .plant-right {
             bottom: -1%;
             right: -2%;
-            width: 48%; /* 화면의 절반 가까이 차지하도록 크게 */
+            width: 48%; 
         }
     </style>
 </head>
@@ -90,7 +90,7 @@
     <div class="container">
         <!-- 중간 점선 (직접 img 태그로 삽입) -->
         <div class="divider">
-            <img src="중간 점선.png" alt="중간 점선">
+            <img src="중간 점선_3.png" alt="중간 점선">
         </div>
 
         <!-- 1. 왼쪽 식물 (어긋살기) -->
@@ -98,7 +98,7 @@
             <img src="어긋살기 설명.png" alt="어긋살기 설명">
         </a>
 
-        <!-- 2. 오른쪽 상단 (포폴 증사) -->
+        <!-- 2. 오른쪽 상단 (포폴 증사) -> portfolio_2.pdf 로 수정됨 -->
         <a href="portfolio.pdf" target="_blank" class="portrait">
             <img src="포폴 증사.png" alt="포트폴리오 증명사진">
         </a>
