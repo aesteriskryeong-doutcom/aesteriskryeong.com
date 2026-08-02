@@ -9,14 +9,14 @@
         body, html {
             margin: 0;
             padding: 0;
-            background-color: #9cbcae; /* 예시 사진과 유사한 민트색 배경 */
+            background-color: #9cbcae; 
         }
 
         /* 전체 레이아웃을 세로로 길게 설정 */
         .container {
             display: flex;
             width: 100%;
-            /* 사이트의 세로 길이를 길게 설정 (숫자를 늘리거나 줄여서 길이 조절 가능) */
+            /* 세로 스크롤을 위해 높이를 아주 길게 설정 (필요시 숫자 조정) */
             min-height: 2500px; 
             position: relative;
         }
@@ -29,13 +29,13 @@
 
         /* 중간 점선 영역 */
         .divider {
-            width: 20px;
+            width: 30px; /* 점선이 조금 더 잘 보이도록 너비 조정 */
             height: 100%;
-            /* 새로 첨부해주신 중간 점선_2.png 적용 및 세로 반복 */
-            background-image: url('중간 점선_2.png');
-            background-repeat: repeat-y;
+            /* 새로 첨부해주신 파일명으로 정확히 수정 */
+            background-image: url('중간 점선_3.png');
+            background-repeat: repeat-y; /* 세로로만 반복 */
             background-position: center top;
-            background-size: contain;
+            background-size: 100% auto; /* 공간 너비에 꽉 차게 맞춘 후 세로로 반복되게 설정 */
         }
 
         /* 오른쪽 영역 */
@@ -71,7 +71,7 @@
         /* 2. 오른쪽 상단 (포폴 증사) 배치 */
         .portrait {
             position: absolute;
-            top: 40%; /* 세로로 길어졌으므로 위에서부터의 위치 지정 */
+            top: 40%;
             left: 20%;
             width: 45%;
             max-width: 250px;
@@ -94,7 +94,7 @@
         <div class="left-pane">
             <!-- 클릭 시 어긋살기.jpg 열림 -->
             <a href="어긋살기.jpg" target="_blank" class="plant-left">
-                <img src="어긋살기 설명.jpg" alt="어긋살기 설명">
+                <img src="어긋살기 설명.png" alt="어긋살기 설명">
             </a>
         </div>
 
@@ -105,7 +105,7 @@
         <div class="right-pane">
             <!-- 클릭 시 portfolio.pdf 열림 -->
             <a href="portfolio.pdf" target="_blank" class="portrait">
-                <img src="포폴 증사.jpg" alt="포트폴리오 증명사진">
+                <img src="포폴 증사.png" alt="포트폴리오 증명사진">
             </a>
             
             <!-- 클릭 시 동인하초.pdf 열림 -->
